@@ -1,9 +1,11 @@
 const fibonacci = function (num) {
-  //1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89,144 and so on.
+  //convert input to number in case user enters string like "5"
   num = Number(num);
+  //Only accept possitive numbers
   if (num < 0) {
-    return "OOPS";
+    return "Cannot accept negative values";
   }
+  //initialising values which will be used in the calculation
   let a = 0;
   let b = 1;
   let c = 0;
@@ -14,16 +16,17 @@ const fibonacci = function (num) {
     num--;
   }
 
+  //loop through the sequence
   for (let i = 0; i < num; i++) {
+    //c is the new entry in the sequence, it is the sum of th etwo previous entries
     c = a + b;
-    console.log("a " + a);
-    console.log("b " + b);
-    console.log("c " + c);
+    //a us now updated to the previous value of b
     a = b;
+    //b is now updated to the previous value of c
     b = c;
   }
-  console.log(c);
 
+  //c is our return the value, the final itteration of the sequence
   return c;
 };
 
